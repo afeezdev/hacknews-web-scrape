@@ -3,12 +3,12 @@ from bs4 import BeautifulSoup
 
 res = requests.get('https://news.ycombinator.com/')
 soup = BeautifulSoup(res.text, 'html.parser')
-# print(soup.body)
-# print(soup.body.contents)
-# print(soup.find_all('div'))
-# print(soup.find_all('a'))
-# print(soup.title)
-# print(soup.a)
-# print(soup.find('a'))
-print(soup.find(id='score_38043033'))
+# using css selector
+# print(soup.select('.score'))
+# print(soup.select('#score_38043033'))
+links = soup.select('.titleline')
+votes = soup.select('.score')
+# print(votes[0].get('id'))
+# print(votes[0].contents[0])
+
 
